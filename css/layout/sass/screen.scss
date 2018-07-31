@@ -1,0 +1,85 @@
+@import "compass/reset";
+// SASS
+@mixin breakpoint($class) {
+  @if $class == xs {
+    @media (max-width: 767px) { @content; }
+  }
+
+  @else if $class == sm {
+    @media (min-width: 576px) { @content; }
+  }
+
+  @else if $class == md {
+    @media (min-width: 768px) { @content; }
+  }
+
+  @else if $class == lg {
+    @media (min-width: 992px) { @content; }
+  }
+
+  @else if $class == xl {
+    @media (min-width: 1200px) { @content; }
+  }
+
+  @else {
+    @warn "Breakpoint mixin supports: xs, sm, md, lg, xl";
+  }
+}
+
+
+@mixin transform ($x, $y, $z) {
+  -webkit-transform: translate3d($x,$y,$z);
+  -moz-transform: translate3d($x,$y,$z);
+  transform: translate3d($x,$y,$z);
+}
+
+@mixin transformStyle ($transformStyle) {
+    -webkit-transform-style: $transformStyle;
+    -moz-transform-style: $transformStyle;
+    transform-style: $transformStyle;
+}
+
+@mixin backface-visibility () {
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+     backface-visibility: hidden;
+}
+
+
+@mixin transition($transition...) {
+    -moz-transition:    $transition;
+    -o-transition:      $transition;
+    -webkit-transition: $transition;
+    transition:         $transition;
+}
+@mixin transition-property($property...) {
+    -moz-transition-property:    $property;
+    -o-transition-property:      $property;
+    -webkit-transition-property: $property;
+    transition-property:         $property;
+}
+@mixin transition-duration($duration...) {
+    -moz-transition-property:    $duration;
+    -o-transition-property:      $duration;
+    -webkit-transition-property: $duration;
+    transition-property:         $duration;
+}
+@mixin transition-timing-function($timing...) {
+    -moz-transition-timing-function:    $timing;
+    -o-transition-timing-function:      $timing;
+    -webkit-transition-timing-function: $timing;
+    transition-timing-function:         $timing;
+}
+@mixin transition-delay($delay...) {
+    -moz-transition-delay:    $delay;
+    -o-transition-delay:      $delay;
+    -webkit-transition-delay: $delay;
+    transition-delay:         $delay;
+}
+// SASS
+
+body{
+  font-family: 'Gotham';
+  font-weight: 300;
+  font-style: normal;
+}
