@@ -78,8 +78,236 @@
 }
 // SASS
 
+// reset a and button
+button:hover, button:active, button:focus,
+a:hover, a:active, a:focus {
+   outline: 0;
+   text-decoration: none;
+   color: inherit;
+}
+
+
+a{
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  &:hover{
+    text-decoration: none;
+  }
+}
+
+button {
+    border: none;
+    margin: 0;
+    padding: 0;
+    width: auto;
+    overflow: visible;
+    cursor: pointer;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    line-height: normal;
+    -webkit-font-smoothing: inherit;
+    -moz-osx-font-smoothing: inherit;
+    -webkit-appearance: none;
+    &::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+	  }
+  }
+
+
+
+// colorschema
+$orange : #F55D00;
+$black : #231F20;
+.primary_btn{
+  background: rgb(0,151,246); /* Old browsers */
+  background: -moz-linear-gradient(top, rgba(0,151,246,1) 0%, rgba(0,109,177,1) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, rgba(0,151,246,1) 0%,rgba(0,109,177,1) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, rgba(0,151,246,1) 0%,rgba(0,109,177,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0097f6', endColorstr='#006db1',GradientType=0 ); /* IE6-9 */
+}
+
+
+body,html{
+  height: 100%;
+}
+
 body{
   font-family: 'Gotham';
   font-weight: 300;
   font-style: normal;
+  line-height: 1em;
+  color: #000;
+}
+
+
+
+// typography
+
+h1{
+  font-weight: 900;
+  font-style: normal;
+  font-size: 2.8em;
+}
+
+h2{
+  font-weight: 900;
+  font-style: normal;
+  font-size: 2.25em;
+}
+
+
+h3{
+  font-weight: bold;
+  font-style: normal;
+  font-size: 1.825em;
+}
+
+
+p{
+  font-size: 1.25em;
+  font-weight: normal;
+  font-style: normal;
+  &.small{
+    font-size: 1em;
+  }
+}
+
+
+
+// HEADER ******************************************************************************************
+#safe_header{
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 50px;
+  background: $black;
+  z-index: 900;
+  display: flex;
+  padding-right: 15px;
+  justify-content: flex-end;
+  align-items: center;
+
+  @include breakpoint(sm){
+    padding-right: 30px;
+  }
+
+  @include breakpoint(md){
+    height: 65px;
+  }
+
+  @include breakpoint(lg){
+    height: 90px;
+  }
+
+  @include breakpoint(xl){
+    height: 110px;
+  }
+
+  img#main_logo_desk{
+    height: auto;
+    width: 196px;
+    top: -15px;
+    left: 69px;
+    position: absolute;
+
+
+
+    @include breakpoint(md){
+      width: 266px;
+      top: -22px;
+      left: 85px;
+    }
+
+    @include breakpoint(lg){
+      width: 350px;
+      top: -25px;
+      left: 30px;
+    }
+
+    @include breakpoint(xl){
+      width: 400px;
+    }
+
+  }
+}
+
+#main_navigation_desk{
+
+  ul{
+    float: left;
+  }
+  div.menu_wrapper{
+    float: left;
+    margin-right: 30px;
+
+    @include breakpoint(xl){
+    margin-right: 45px;
+    }
+  }
+  ul#menu-main-navigation-desktop{
+      color: #fff;
+    li{
+      display: inline-block;
+      margin-right: 10px;
+      line-height: 31px;
+      &:last-child{
+        margin-right: 0px;
+      }
+
+      @include breakpoint(xl){
+        margin-right: 30px;
+      }
+
+      &:hover{
+        a{
+          opacity: 0.8;
+        }
+      }
+
+      a{
+        @include transition (opacity 0.3s ease);
+        color: #fff;
+        opacity: 1;
+
+      }
+    }
+  }
+
+  ul#utility_desktop{
+    li{
+      display: inline-block;
+      margin-right: 0px;
+      @include breakpoint(sm){
+        margin-right: 10px;
+      }
+      @include breakpoint(xl){
+        margin-right: 15px;
+      }
+      @include transition (opacity 0.3s ease);
+      &:hover{
+        opacity: 0.8;
+      }
+      &:last-child{
+        margin-right: 0px;
+      }
+    }
+  }
+}
+
+#mobile_menu_open{
+  height: 50px;
+  width: 50px;
+  background: $orange;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+
+  @include breakpoint(md){
+    height: 65px;
+    width: 65px;
+  }
 }
